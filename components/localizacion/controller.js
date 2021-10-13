@@ -1,15 +1,12 @@
 // By Cristian Franco
 const store = require('./store');
 
-function addVehiculo(VehiculoId, color, model, latitude, longitude,) {
-    if (!VehiculoId) {
+function addVehiculo(vehiculoId, latitude, longitude, user = '') {
+    if (!vehiculoId) {
         return Promise.reject('Invalid id');
     }
-    let user = ''
     const Vehiculo = {
-        VehiculoId,
-        color,
-        model,
+        vehiculoId,
         latitude,
         longitude,
         user
@@ -27,12 +24,15 @@ function listVehiculos() {
     return store.list();
 }
 
-function updateVehiculoById(id, VehiculoId, color, model, latitude, longitude, user) {
+function updateVehiculoById(id, vehiculoId, latitude, longitude, user) {
     return new Promise(async (resolve, reject) => {
 
         const Vehiculo = {
-            VehiculoId, color, model, latitude, longitude, user
-        }
+            vehiculoId,
+            latitude,
+            longitude,
+            user
+        };
 
         const result = await store.updateById(id, Vehiculo);
 

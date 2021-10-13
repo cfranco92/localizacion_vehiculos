@@ -12,7 +12,7 @@ router.put('/:id', updateVehiculo);
 router.delete('/:id', deleteVehiculo);
 
 function createVehiculo(req, res) {
-    controller.addVehiculo(req.body.VehiculoId, req.body.color, req.body.model, req.body.latitude, req.body.longitude)
+    controller.addVehiculo(req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.user)
         .then(data => {
             response.success(req, res, data, 201);
         })
@@ -43,7 +43,7 @@ function getVehiculos(req, res) {
 
 function updateVehiculo(req, res) {
     controller.updateVehiculoById(req.params.id,
-        req.body.VehiculoId, req.body.color, req.body.model, req.body.latitude, req.body.longitude, req.body.user
+        req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.user
     )
         .then((data) => {
             response.success(req, res, data, 200);
@@ -56,7 +56,7 @@ function updateVehiculo(req, res) {
 function deleteVehiculo(req, res) {
     controller.deleteVehiculoById(req.params.id)
         .then(() => {
-            response.success(req, res, `Vehiculo ${req.params.id} deleted`, 200);
+            response.success(req, res, `Vehiculo ${req.params.id} borrado`, 200);
         })
         .catch(e => {
             response.error(req, res, 'Internal Error', 500, e);

@@ -15,17 +15,15 @@ async function getVehiculoById(filterVehiculo) {
     return Vehiculo;
 }
 
-async function updateVehiculo(id, Vehiculo) {
+async function updateVehiculo(id, vehiculo) {
     const founVehiculo = await Model.findOne({
         _id: id
     });
 
-    founVehiculo.VehiculoId = Vehiculo.VehiculoId;
-    founVehiculo.color = Vehiculo.color;
-    founVehiculo.model = Vehiculo.model;
-    founVehiculo.latitude = Vehiculo.latitude;
-    founVehiculo.longitude = Vehiculo.longitude;
-    founVehiculo.user = Vehiculo.user;
+    founVehiculo.vehiculoId = vehiculo.vehiculoId;
+    founVehiculo.latitude = vehiculo.latitude;
+    founVehiculo.longitude = vehiculo.longitude;
+    founVehiculo.user = vehiculo.user;
 
     const newStatus = await founVehiculo.save();
     return newStatus;
