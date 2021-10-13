@@ -1,6 +1,7 @@
 FROM golang as builder
 RUN go get github.com/cfranco92/redbicicletas-localizacion
 
+# Node version
 FROM node:14-stretch-slim
 
 # Create app directory
