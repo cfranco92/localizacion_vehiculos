@@ -17,7 +17,7 @@
         "http"
     ],
     "paths": {
-        "/lozalizacion": {
+        "/localizacion": {
             "put": {
                 "tags": [
                     "vehiculos"
