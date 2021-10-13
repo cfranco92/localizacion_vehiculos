@@ -1,0 +1,151 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API Rest Localización vehiculos rentados",
+        "version": "1.0.0",
+        "title": "API-Rest Localización Vehiculos"
+    },
+    "host": "localhost:3000",
+    "basePath": "/localizacion",
+    "tags": [
+        {
+            "name": "vehiculos",
+            "description": "Operations about vehiculos"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/lozalizacion": {
+            "put": {
+                "tags": [
+                    "vehiculos"
+                ],
+                "summary": "Update vehiculo",
+                "description": "Update vehiculo in our app.",
+                "operationId": "updateVehiculo",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created vehiculo object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Vehiculo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "vehiculos"
+                ],
+                "summary": "Create vehiculo",
+                "description": "Create vehiculo in our app.",
+                "operationId": "createVehiculo",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created vehiculo object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Vehiculo"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "vehiculos"
+                ],
+                "summary": "Vehiculos list",
+                "description": "Get vehiculos.",
+                "operationId": "listVehiculo",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "vehiculos"
+                ],
+                "summary": "Delete vehiculo",
+                "description": "Delete vehiculos.",
+                "operationId": "deleteVehiculo",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "petstore_auth": {
+            "type": "oauth2",
+            "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+            "flow": "implicit",
+            "scopes": {
+                "write:pets": "modify pets in your account",
+                "read:pets": "read your pets"
+            }
+        },
+        "api_key": {
+            "type": "apiKey",
+            "name": "api_key",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "Vehiculo": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "vehiculoId": {
+                    "type": "string"
+                },
+                "latitude": {
+                    "type": "number"
+                },
+                "longitude": {
+                    "type": "number"
+                }
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    }
+}
