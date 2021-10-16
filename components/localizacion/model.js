@@ -7,7 +7,9 @@ const mySchema = new Schema({
     vehiculoId: String,
     latitude: Number,
     longitude: Number,
-    user: String
+    userID: String,
+    color: String,
+    modelo: String,
 });
 
 const model = mongoose.model('Vehiculo', mySchema);
