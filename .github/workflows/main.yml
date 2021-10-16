@@ -10,7 +10,7 @@ on:
     types: [opened, reopened, synchronize, labeled, closed]
 
 jobs:
-  tests:
+  heroku-review-application:
     name: Heroku Review Application
     runs-on: ubuntu-latest
     steps:
@@ -21,6 +21,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: heroku-review-application
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to Heroku
@@ -31,6 +32,7 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
