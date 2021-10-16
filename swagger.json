@@ -1,7 +1,7 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "API Rest Localización vehiculos rentados",
+        "description": "API-Rest Localización vehiculos rentados",
         "version": "1.0.0",
         "title": "API-Rest Localización Vehiculos"
     },
