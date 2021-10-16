@@ -5,8 +5,8 @@
         "version": "1.0.0",
         "title": "API-Rest Localización Vehiculos"
     },
-    "host": "localhost:3000",
-    "basePath": "/localizacion",
+    "host": "obscure-plains-82299.herokuapp.com",
+    "basePath": "/",
     "tags": [
         {
             "name": "vehiculos",
@@ -14,7 +14,7 @@
         }
     ],
     "schemes": [
-        "http"
+        "https"
     ],
     "paths": {
         "/localizacion": {
@@ -129,7 +129,7 @@
                 "id": {
                     "type": "string"
                 },
-                "user": {
+                "userID": {
                     "type": "string"
                 },
                 "vehiculoId": {
@@ -140,6 +140,12 @@
                 },
                 "longitude": {
                     "type": "number"
+                },
+                "color": {
+                    "type": "string"
+                },
+                "modelo": {
+                    "type": "string"
                 }
             }
         }

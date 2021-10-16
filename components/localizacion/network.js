@@ -12,7 +12,7 @@ router.put('/:id', updateVehiculo);
 router.delete('/:id', deleteVehiculo);
 
 function createVehiculo(req, res) {
-    controller.addVehiculo(req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.user)
+    controller.addVehiculo(req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.userID, req.body.color, req.body.modelo)
         .then(data => {
             response.success(req, res, data, 201);
         })
@@ -43,7 +43,7 @@ function getVehiculos(req, res) {
 
 function updateVehiculo(req, res) {
     controller.updateVehiculoById(req.params.id,
-        req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.user
+        req.body.vehiculoId, req.body.latitude, req.body.longitude, req.body.userID, req.body.color, req.body.modelo
     )
         .then((data) => {
             response.success(req, res, data, 200);

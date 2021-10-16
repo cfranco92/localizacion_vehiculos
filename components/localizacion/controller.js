@@ -1,7 +1,7 @@
 // By Cristian Franco
 const store = require('./store');
 
-function addVehiculo(vehiculoId, latitude, longitude, user = '') {
+function addVehiculo(vehiculoId, latitude, longitude, userID = '', color, modelo) {
     if (!vehiculoId) {
         return Promise.reject('Invalid id');
     }
@@ -9,7 +9,9 @@ function addVehiculo(vehiculoId, latitude, longitude, user = '') {
         vehiculoId,
         latitude,
         longitude,
-        user
+        userID,
+        color,
+        modelo
     };
     return store.add(Vehiculo);
 }
@@ -24,14 +26,16 @@ function listVehiculos() {
     return store.list();
 }
 
-function updateVehiculoById(id, vehiculoId, latitude, longitude, user) {
+function updateVehiculoById(id, vehiculoId, latitude, longitude, userID, color, modelo) {
     return new Promise(async (resolve, reject) => {
 
         const Vehiculo = {
             vehiculoId,
             latitude,
             longitude,
-            user
+            userID,
+            color,
+            modelo
         };
 
         const result = await store.updateById(id, Vehiculo);
