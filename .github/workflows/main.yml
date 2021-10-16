@@ -7,14 +7,7 @@ on:
       - develop
   pull_request:
     branches:
-      - master
       - develop
-    types: [opened, reopened, synchronize, labeled, closed]
-  pull_request_target:
-    branches:
-      - master
-      - develop
-    types: [opened, reopened, synchronize, labeled, closed]
 
 jobs:
   build-test:
