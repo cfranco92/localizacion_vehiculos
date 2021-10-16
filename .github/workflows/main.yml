@@ -4,9 +4,32 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    types: [opened, reopened, synchronize, labeled, closed]
+  pull_request_target:
+    types: [opened, reopened, synchronize, labeled, closed]
 
 jobs:
+  tests:
+    name: Heroku Review Application
+    runs-on: ubuntu-latest
+    steps:
+      - name: Heroku Review Application
+        uses: mheap/github-action-pr-heroku-review-app@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: behe/heroku-build@v1
+        with:
+          app-name: "obscure-plains-82299"
+          api-key: "${{secrets.HEROKU_API_KEY}}"
+
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
