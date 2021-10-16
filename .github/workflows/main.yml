@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HEROKU_PIPELINE_ID: "obscure-plains-82299"
-          HEROKU_API_TOKEN: "${{secrets.HEROKU_API_KEY}}"
+          HEROKU_API_TOKEN: "review"
 
   build:
     runs-on: ubuntu-latest
