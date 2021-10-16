@@ -18,8 +18,8 @@ jobs:
         uses: mheap/github-action-pr-heroku-review-app@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          app-name: "obscure-plains-82299"
-          api-key: "${{secrets.HEROKU_API_KEY}}"
+          HEROKU_PIPELINE_ID: "obscure-plains-82299"
+          HEROKU_API_TOKEN: "${{secrets.HEROKU_API_KEY}}"
 
   build:
     runs-on: ubuntu-latest
