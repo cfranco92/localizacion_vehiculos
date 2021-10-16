@@ -17,7 +17,7 @@ jobs:
       - name: Heroku Review Application
         uses: mheap/github-action-pr-heroku-review-app@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_PIPELINE_ID: "obscure-plains-82299"
           HEROKU_API_TOKEN: "review"
 
