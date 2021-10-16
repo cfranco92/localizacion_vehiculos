@@ -1,9 +1,13 @@
-name: CI/CD Production
+name: CI/CD PRs
 
 on:
   push:
     branches:
+      - develop
+  pull_request:
+    branches:
       - master
+      - develop
 
 jobs:
   build-test:
@@ -38,15 +42,3 @@ jobs:
           echo "Status:    ${{ steps.buildx.outputs.status }}"
           echo "Flags:     ${{ steps.buildx.outputs.flags }}"
           echo "Platforms: ${{ steps.buildx.outputs.platforms }}"
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "obscure-plains-82299" #Must be unique in Heroku
-          heroku_email: "cfrancobedoya@gmail.com"
-          usedocker: true
