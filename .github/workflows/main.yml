@@ -10,16 +10,21 @@ on:
     types: [opened, reopened, synchronize, labeled, closed]
 
 jobs:
-  heroku-review-application:
-    name: Heroku Review Application
+  build-test:
+    name: Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Heroku Review Application
-        uses: mheap/github-action-pr-heroku-review-app@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.HEROKU_API_KEY }}
-          HEROKU_PIPELINE_ID: "obscure-plains-82299"
-          HEROKU_API_TOKEN: "review"
+      - uses: actions/checkout@v2 # checkout the repo
+      - run: npm ci # install packages
+      - run: npm test # run tests (configured to use jest-junit reporter)
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure() # run this step even if previous step failed
+        with:
+          name: JEST Tests # Name of the check run which will be created
+          path: reports/jest-*.xml # Path to test results
+          reporter: jest-junit # Format of test results
 
   build:
     runs-on: ubuntu-latest
