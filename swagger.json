@@ -3,7 +3,7 @@
     "info": {
         "description": "API-Rest Localización vehiculos rentados",
         "version": "1.0.0",
-        "title": "API-Rest Localización Vehiculos Staging"
+        "title": "API-Rest Localización Vehiculos"
     },
     "host": "obscure-plains-82299.herokuapp.com",
     "basePath": "/",

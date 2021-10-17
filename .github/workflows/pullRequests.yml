@@ -1,9 +1,6 @@
 name: CI/CD PRs
 
 on:
-  push:
-    branches:
-      - develop
   pull_request:
     branches:
       - master
