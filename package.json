@@ -1,7 +1,7 @@
 {
   "name": "redbicicletas-be",
-  "version": "1.0.1",
-  "description": "Backend of Redbicicletas",
+  "version": "2.0.0",
+  "description": "Backend of LocalizacionVehiculos",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Tests: [OK]\" && exit 0",
